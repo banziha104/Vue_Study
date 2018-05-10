@@ -12,7 +12,7 @@
 
 # 예제
 
-* Interpolation 
+* Interpolation
 
 > 기본직인 바인딩 체계 Mustche {{}} 를 따름.
 
@@ -23,7 +23,7 @@
 <div id="item-{{ id }}"></div>
 ```
 
-* Binding Expressions 
+* Binding Expressions
 
 > {{}}를 이용한 데이터 바인딩을 할 때 자바스크립트 표현식을 사용할 수 있다.
 
@@ -38,10 +38,10 @@
 > Vue에서 제공하는 특별한 Attributes이며 v-의 접두사를 가짐
 
 - v-text, v-html : 값을 나타내기 위해 사용
-- v-bind : 요소 객체의 속성들을 바인딩
+- v-bind : 요소 객체의 속성들을 바인딩, : 로 축약가능
 - v-model : Vue 객체의 data 속성을 바인딩함, 양방향으로 데이터가 바뀌면 재 랜더링
 - v-if,v-else,v-else-if : 조건 렌더링 , 조건에 맞지 않으면 렌더링하지않음.
-- v-show : 조건 렌더링 , 조건에 맞지 않으면 화면에 보여주지 않음. 
+- v-show : 조건 렌더링 , 조건에 맞지 않으면 화면에 보여주지 않음.
 - v-for : 반복렌더링
 - v-pre : 컴파일을 수행하지않음 {{}} 가 그대로 출력
 - v-once : Vue 인스턴스의 데이터를 변경하더라도 다시 렌더링을 수행하지 않음.
