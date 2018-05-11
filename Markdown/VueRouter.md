@@ -4,82 +4,50 @@
 * 렌더링되는 컴포넌트구조는 큰 상위컴포넌트가 하위컴포 넌트를 포함하는 Parent - Child 형태와 같다
 
 ```javascript
-var Login = {
-    template: `
-    <div>
-      Login Section
-      <router-view>
-        <form action="/" method="post">
-          <div>
-              <label for="account">E-mail : </label>
-              <input type="email" id="account">
-          </div>
-          <div>
-              <label for="password">Password : </label>
-              <input type="password" id="password">
-          </div>
-        </form>
-      </router-view>
-    </div>
-  `,
-};
-var LoginForm = {
-    template: `
-    <form action="/" method="post">
-      <div>
-          <label for="account">E-mail : </label>
-          <input type="email" id="account">
-      </div>
-      <div>
-          <label for="password">Password : </label>
-          <input type="password" id="password">
-      </div>
-    </form>
-  `,
-};
-var List = {
-    template: `
-    <div>
-      List Section
-      <router-view></router-view>
-    </div>
-  `,
-};
-var ListItems = {
-    template: `
-    <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-    </ul>
-  `,
-};
-
-var routes = [
-    {
-        path: '/login',
-        component: Login,
-        children: [
-            { path: '', component: LoginForm }
-        ]
-    },
-    {
-        path: '/list',
-        component: List,
-        children: [
-            { path: '', component: ListItems }
-        ]
-    }
-];
-
-var router = new VueRouter({
-    routes
-});
-
-var app = new Vue({
-    router
-}).$mount('#app');
+// 뷰 라우터 생성
+const router =  new VueRouter({
+    routes : [
+      { path: '/' , components : Home},
+      { path: '/home' , components : Home},
+      { path: '/about' , components : About},
+      { path: '/comtacts' , components : Contacts},
+    ]
+  })
 ```
+
+```html
+// 라우트 이벤트 발생 -> router-link
+<li>
+              <router-link to="/home">Home</router-link>
+            </li>
+            <li>
+              <router-link to="/about">About</router-link>
+            </li>
+            <li>
+              <router-link to="/contacts">Contacts</router-link>
+            </li>
+```
+
+```html
+// 라우트 된 뷰가 나타남 -> router-view
+  <div class="container">
+    <router-view></router-view>
+  </div>
+```
+
+```javascript
+//main에 등록
+import Vue from 'vue'
+import App from './App.vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
+
+```
+
 
 # 주의점
 
@@ -134,3 +102,7 @@ var Foo ={
 * Named : 특정 URL 에서 여러 개의 컴포넌트를 쪼개진 뷰단위로 렌더링 하는 것을 Named View
 
 ![nestedVsNamed](https://github.com/banziha104/Vue.js/blob/master/Markdown/img/na.jpeg)
+
+- 동적 라우트 : 일정한 패턴의 URI 경로의 일부에 필요한 파라미터 값이 있는 경우 유용
+
+

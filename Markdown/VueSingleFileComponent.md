@@ -14,7 +14,19 @@
 - named slot : 슬롯에 이름을 전달해줌
 
 ```html
-
 <slot name="header"></slot>
 ```
+
+- 범위 슬롯 : 자식에서 부모로 올려보내는 슬롯
+- 동적 컴포넌트 : 여러 컴포넌트를 표현하기 위해 사용
+
+```html
+<keep-alive include="about,home">
+  <component :is="currentView"></component>
+</keep-alive>
+```
+
+- 재귀 컴포넌트 : 다시 자기 자신을 가르키는 컴포넌트
+
+
 
